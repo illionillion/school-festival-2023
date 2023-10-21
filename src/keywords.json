@@ -1,0 +1,127 @@
+[
+    {
+        "route": "A",
+        "keywords": [
+            {
+                "id": "A1",
+                "keyword": "ア" 
+            },
+            {
+                "id": "A2",
+                "keyword": "イ" 
+            },
+            {
+                "id": "A3",
+                "keyword": "ウ" 
+            },
+            {
+                "id": "A4",
+                "keyword": "エ" 
+            },
+            {
+                "id": "A5",
+                "keyword": "オ" 
+            }
+        ]
+    },
+    {
+        "route": "B",
+        "keywords": [
+            {
+                "id": "B1",
+                "keyword": "ア" 
+            },
+            {
+                "id": "B2",
+                "keyword": "イ" 
+            },
+            {
+                "id": "B3",
+                "keyword": "ウ" 
+            },
+            {
+                "id": "B4",
+                "keyword": "エ" 
+            },
+            {
+                "id": "B5",
+                "keyword": "オ" 
+            }
+        ]
+    },
+    {
+        "route": "C",
+        "keywords": [
+            {
+                "id": "C1",
+                "keyword": "ア" 
+            },
+            {
+                "id": "C2",
+                "keyword": "イ" 
+            },
+            {
+                "id": "C3",
+                "keyword": "ウ" 
+            },
+            {
+                "id": "C4",
+                "keyword": "エ" 
+            },
+            {
+                "id": "C5",
+                "keyword": "オ" 
+            }
+        ]
+    },
+    {
+        "route": "D",
+        "keywords": [
+            {
+                "id": "D1",
+                "keyword": "ア" 
+            },
+            {
+                "id": "D2",
+                "keyword": "イ" 
+            },
+            {
+                "id": "D3",
+                "keyword": "ウ" 
+            },
+            {
+                "id": "D4",
+                "keyword": "エ" 
+            },
+            {
+                "id": "D5",
+                "keyword": "オ" 
+            }
+        ]
+    },
+    {
+        "route": "E",
+        "keywords": [
+            {
+                "id": "E1",
+                "keyword": "ア" 
+            },
+            {
+                "id": "E2",
+                "keyword": "イ" 
+            },
+            {
+                "id": "E3",
+                "keyword": "ウ" 
+            },
+            {
+                "id": "E4",
+                "keyword": "エ" 
+            },
+            {
+                "id": "E5",
+                "keyword": "オ" 
+            }
+        ]
+    }
+]
