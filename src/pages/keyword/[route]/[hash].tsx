@@ -8,7 +8,7 @@ import { digestMessage } from '@/lib/digestMessage';
 export default function Key() {
   const router = useRouter();
   const { route, hash } = router.query;
-  const [currentRoute, setCurrentRoute] = useState<string>('');
+  const [currentRoute, setCurrentRoute] = useState<string>('')
   const [keyword, setKeyword] = useState<string>('');
 
   const decodeHash = async () => {
