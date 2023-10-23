@@ -26,13 +26,13 @@ export const saveKeyword = (route: string, key: string) => {
  * @returns データ
  */
 export const loadKeyword = (route: string) => {
-    const data = localStorage.getItem(`keyword${route}`)
-    if (data && isJson(data)) {
-        const arr: string[] = JSON.parse(data)
-        return arr
-    } else {
-        return []
-    }
+  const data = localStorage.getItem(`keyword${route}`);
+  if (data && isJson(data)) {
+    const arr: string[] = JSON.parse(data);
+    return arr;
+  } else {
+    return [];
+  }
 };
 
 const isJson = (text: string) => {
