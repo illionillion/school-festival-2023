@@ -1,3 +1,4 @@
+import { saveKeyword } from '@/lib/memoKeywords';
 import { Box, Button, Center, Text, VStack } from '@chakra-ui/react';
 import type { FC } from 'react';
 interface KeywordScreenProps {
@@ -5,6 +6,9 @@ interface KeywordScreenProps {
     keyword: string
 }
 export const KeywordScreen: FC<KeywordScreenProps> = ({ route, keyword }) => {
+  const handleSave = () => {
+    saveKeyword(route, keyword);
+  };
   return (<>
     <VStack w='100vw' h="calc(100svh - 72px)" justify='center' alignItems='center' py='14'>
       <VStack gap={3}>
@@ -29,7 +33,7 @@ export const KeywordScreen: FC<KeywordScreenProps> = ({ route, keyword }) => {
         </Center>
       </Box>
       <Center>
-        <Button px='10' py='7' colorScheme="blue" borderRadius={15}>メモする</Button>
+        <Button px='10' py='7' colorScheme="blue" borderRadius={15} onClick={handleSave}>メモする</Button>
       </Center>
     </VStack>
   </>
