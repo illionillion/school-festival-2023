@@ -36,8 +36,8 @@ export const loadKeyword = (route: string) => {
 };
 
 export const deleteKeyword = (route: string) => {
-  localStorage.removeItem(`keyword${route}`)
-}
+  localStorage.removeItem(`keyword${route}`);
+};
 
 const isJson = (text: string) => {
   try {
