@@ -2,6 +2,7 @@ import { deleteKeyword, loadKeyword } from '@/lib/memoKeywords';
 import { Box, Button, ListItem, Text, UnorderedList, VStack } from '@chakra-ui/react';
 import type { FC} from 'react';
 import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 
 type wordList = {
     route: string,
@@ -25,8 +26,11 @@ export const SaveKeywordList:FC = () => {
     );
   },[]);
   return <VStack w='100vw' h="calc(100svh - 72px)" justify='center' alignItems='center'>
+    <motion.div animate={{ y: 0 }} transition={{ type: 'spring'}} initial={{ y: '-15vh' }}>
     <Text fontSize='2xl' userSelect="none">キーワードメモ</Text>
-    {words.map((item, index) => (
+    </motion.div>
+    <motion.div animate={{ y: 0 }} transition={{ type: 'spring', delay: 0.05}} initial={{ y: '-5vh' }}>
+      {words.map((item, index) => (
       <Box key={index}>
         <Text userSelect="none">ルート：{item.route}</Text>
         <UnorderedList userSelect="none">
@@ -36,6 +40,7 @@ export const SaveKeywordList:FC = () => {
         </UnorderedList>
       </Box>
     ))}
+    </motion.div>
     <Button colorScheme="red" onClick={resetKeywords}>リセット</Button>
   </VStack>;
 };
