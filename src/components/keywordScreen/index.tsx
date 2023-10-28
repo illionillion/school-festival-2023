@@ -12,19 +12,19 @@ export const KeywordScreen: FC<KeywordScreenProps> = ({ route, keyword, errorFla
     saveKeyword(route, keyword);
   };
   return (<>
-    {errorFlag&&<><Modal onClose={onMordalClose} isOpen={errorFlag} isCentered>
-        <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Error!</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody>
+    {errorFlag&&<><Modal isCentered isOpen={errorFlag} onClose={onMordalClose}>
+      <ModalOverlay />
+      <ModalContent>
+        <ModalHeader>Error!</ModalHeader>
+        <ModalCloseButton />
+        <ModalBody>
             ページが存在していません
-          </ModalBody>
-          <ModalFooter>
-            <Button onClick={onMordalClose}>閉じる</Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal></>}
+        </ModalBody>
+        <ModalFooter>
+          <Button onClick={onMordalClose}>閉じる</Button>
+        </ModalFooter>
+      </ModalContent>
+    </Modal></>}
     <VStack w='100vw' h="calc(100svh - 72px)" justify='center' alignItems='center' py='14'>
       <VStack gap={3}>
         <Center gap={3}>

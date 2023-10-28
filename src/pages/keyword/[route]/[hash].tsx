@@ -16,7 +16,7 @@ export default function Key() {
   const decodeHash = async () => {
     if((!route || typeof route !== 'string') || (!hash  || typeof hash !== 'string')) return;
     if (data.some(item => item.route.toLowerCase() === route.toLowerCase())) {
-      console.log("routeの一致");
+      console.log('routeの一致');
       setCurrentRoute(route.toUpperCase());
       // hashとハッシュ化したidが等しいか比較する
       for (const item of data) {
@@ -31,19 +31,19 @@ export default function Key() {
           }
           if(!hashFlag){
             setErrorFlag(true);
-            console.log("hashFlagはfalse");
+            console.log('hashFlagはfalse');
           }
         }
       }
     }else{
       setErrorFlag(true);
-      console.log("routeの不一致");
+      console.log('routeの不一致');
     }
   };
 
   const onMordalClose=()=>{
     setErrorFlag(false);
-  }
+  };
 
   
 
