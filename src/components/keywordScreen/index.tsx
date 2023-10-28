@@ -1,15 +1,30 @@
 import { saveKeyword } from '@/lib/memoKeywords';
-import { Box, Button, Center, Text, VStack } from '@chakra-ui/react';
+import { Box, Button, Center, Text, VStack, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter, Modal} from '@chakra-ui/react';
 import type { FC } from 'react';
 interface KeywordScreenProps {
     route: string
     keyword: string
+    errorFlag: boolean;
+    onMordalClose: () => void;
 }
-export const KeywordScreen: FC<KeywordScreenProps> = ({ route, keyword }) => {
+export const KeywordScreen: FC<KeywordScreenProps> = ({ route, keyword, errorFlag, onMordalClose }) => {
   const handleSave = () => {
     saveKeyword(route, keyword);
   };
   return (<>
+    {errorFlag&&<><Modal onClose={onMordalClose} isOpen={errorFlag} isCentered>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Error!</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            ページが存在していません
+          </ModalBody>
+          <ModalFooter>
+            <Button onClick={onMordalClose}>閉じる</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal></>}
     <VStack w='100vw' h="calc(100svh - 72px)" justify='center' alignItems='center' py='14'>
       <VStack gap={3}>
         <Center gap={3}>
