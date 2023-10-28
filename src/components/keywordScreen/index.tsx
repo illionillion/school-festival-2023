@@ -13,7 +13,7 @@ export const KeywordScreen: FC<KeywordScreenProps> = ({ route, keyword }) => {
     <VStack w='100vw' h="calc(100svh - 72px)" justify='center' alignItems='center' py='14'>
       <VStack gap={3}>
         <Center gap={3}>
-          <Text fontSize='2xl' fontWeight={'bold'} userSelect={'none'}>ルート</Text>
+          <Text fontSize='2xl' userSelect={'none'}>ルート</Text>
           <Text fontSize='2xl' color='red' userSelect={'none'}>{route}</Text>
         </Center>
         <Center fontSize='2xl' userSelect={'none'}>キーワード</Center>
