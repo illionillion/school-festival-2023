@@ -29,7 +29,7 @@ export const KeywordScreen: FC<KeywordScreenProps> = ({ route, keyword }) => {
           borderStyle='solid'
           margin='auto'
         >
-          <Text fontSize='9xl'>{keyword}</Text>
+          <Text fontSize='9xl' userSelect={'none'}>{keyword}</Text>
         </Center>
       </Box>
       <Center>
