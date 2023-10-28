@@ -1,6 +1,7 @@
 import { saveKeyword } from '@/lib/memoKeywords';
 import { Box, Button, Center, Text, VStack } from '@chakra-ui/react';
 import type { FC } from 'react';
+import { motion } from 'framer-motion';
 interface KeywordScreenProps {
     route: string
     keyword: string
@@ -13,10 +14,10 @@ export const KeywordScreen: FC<KeywordScreenProps> = ({ route, keyword }) => {
     <VStack w='100vw' h="calc(100svh - 72px)" justify='center' alignItems='center' py='14'>
       <VStack gap={3}>
         <Center gap={3}>
-          <Text fontSize='2xl' userSelect="none">ルート</Text>
-          <Text fontSize='2xl' color='red' userSelect="none">{route}</Text>
+          <Text fontSize='2xl' fontWeight={'bold'}>ルート</Text>
+          <Text fontSize='2xl' color='red'>{route}</Text>
         </Center>
-        <Center fontSize='2xl' userSelect="none">キーワード</Center>
+        <Center fontSize='2xl'>キーワード</Center>
       </VStack>
       <Box py='6'>
         <Center
@@ -29,7 +30,9 @@ export const KeywordScreen: FC<KeywordScreenProps> = ({ route, keyword }) => {
           borderStyle='solid'
           margin='auto'
         >
-          <Text fontSize='9xl' userSelect="none">{keyword}</Text>
+        <motion.div animate={{ y: 0 }} transition={{ type: 'spring'}} initial={{ y: '-15vh' }}>
+          <Text fontSize='9xl'>{keyword}</Text>
+        </motion.div>
         </Center>
       </Box>
       <Center>
