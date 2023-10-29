@@ -14,10 +14,10 @@ export const KeywordScreen: FC<KeywordScreenProps> = ({ route, keyword }) => {
     <VStack w='100vw' h="calc(100svh - 72px)" justify='center' alignItems='center' py='14'>
       <VStack gap={3}>
         <Center gap={3}>
-          <Text fontSize='2xl' fontWeight={'bold'}>ルート</Text>
-          <Text fontSize='2xl' color='red'>{route}</Text>
+          <Text fontSize='2xl' userSelect="none">ルート</Text>
+          <Text fontSize='2xl' color='red' userSelect="none">{route}</Text>
         </Center>
-        <Center fontSize='2xl'>キーワード</Center>
+        <Center fontSize='2xl' userSelect="none">キーワード</Center>
       </VStack>
       <Box py='6'>
         <Center
@@ -31,7 +31,7 @@ export const KeywordScreen: FC<KeywordScreenProps> = ({ route, keyword }) => {
           margin='auto'
         >
         <motion.div animate={{ y: 0 }} transition={{ type: 'spring'}} initial={{ y: '-15vh' }}>
-          <Text fontSize='9xl'>{keyword}</Text>
+          <Text fontSize='9xl' userSelect="none">{keyword}</Text>
         </motion.div>
         </Center>
       </Box>
