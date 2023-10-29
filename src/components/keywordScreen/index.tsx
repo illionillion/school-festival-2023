@@ -30,7 +30,7 @@ export const KeywordScreen: FC<KeywordScreenProps> = ({ route, keyword }) => {
           borderStyle='solid'
           margin='auto'
         >
-        <motion.div animate={{ y: 0 }} transition={{ type: 'spring'}} initial={{ y: '-15vh' }} whileTap={{  }}>
+        <motion.div animate={{ y: 0 }} transition={{ type: 'spring'}} initial={{ y: '-15vh' }} whileTap={{ scale: 2 }}>
           <Text fontSize='9xl' userSelect="none">{keyword}</Text>
         </motion.div>
         </Center>
