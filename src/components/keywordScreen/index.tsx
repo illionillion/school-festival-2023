@@ -11,7 +11,7 @@ export const KeywordScreen: FC<KeywordScreenProps> = ({ route, keyword }) => {
   const handleSave = () => {
     saveKeyword(route, keyword);
   };
-  const { reward, isAnimating } = useReward("rewardId", "confetti");
+  const { reward } = useReward("rewardId", "confetti");
 
   useEffect(() => {
     reward()
