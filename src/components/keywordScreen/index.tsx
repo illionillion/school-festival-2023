@@ -1,7 +1,8 @@
 import { saveKeyword } from '@/lib/memoKeywords';
 import { Box, Button, Center, Text, VStack } from '@chakra-ui/react';
-import type { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useReward } from 'react-rewards';
 interface KeywordScreenProps {
     route: string
     keyword: string
@@ -10,7 +11,12 @@ export const KeywordScreen: FC<KeywordScreenProps> = ({ route, keyword }) => {
   const handleSave = () => {
     saveKeyword(route, keyword);
   };
-  return (<>
+  const { reward, isAnimating } = useReward("rewardId", "confetti");
+
+  useEffect(() => {
+    reward()
+  }, [reward]);
+return (<>
     <VStack w='100vw' h="calc(100svh - 72px)" justify='center' alignItems='center' py='14'>
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
           <VStack gap={3}>
@@ -21,7 +27,7 @@ export const KeywordScreen: FC<KeywordScreenProps> = ({ route, keyword }) => {
             <Center fontSize='2xl' userSelect="none">キーワード</Center>
           </VStack>
         <Box py='6'>
-          <Center
+          <Center id="rewardId"
             maxW='356px'
             maxH='356px'
             w="calc(100vw * 0.75)"
@@ -31,7 +37,7 @@ export const KeywordScreen: FC<KeywordScreenProps> = ({ route, keyword }) => {
             borderStyle='solid'
             margin='auto'
           >
-          <motion.div animate={{ y: 0 }} transition={{ type: 'spring' }} initial={{ y: '-15vh' }} whileTap={{ scale: 0.8, rotate: 360 }}>
+          <motion.div animate={{ y: 0 }} transition={{ type: 'spring' }} initial={{ y: '15vh' }} whileTap={{ scale: 0.8, rotate: 360 }}>
             <Text fontSize='9xl' userSelect="none">{keyword}</Text>
           </motion.div>
           </Center>
