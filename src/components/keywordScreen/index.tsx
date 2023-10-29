@@ -30,13 +30,15 @@ export const KeywordScreen: FC<KeywordScreenProps> = ({ route, keyword }) => {
           borderStyle='solid'
           margin='auto'
         >
-        <motion.div animate={{ y: 0 }} transition={{ type: 'spring'}} initial={{ y: '-15vh' }} whileTap={{ scale: 0.8, rotate: 360 }}>
+        <motion.div animate={{ y: 0 }} transition={{ type: 'spring' }} initial={{ y: '-15vh' }} whileTap={{ scale: 0.8, rotate: 360 }}>
           <Text fontSize='9xl' userSelect="none">{keyword}</Text>
         </motion.div>
         </Center>
       </Box>
       <Center>
+      <motion.div whileTap={{ scale: 0.5 }}>
         <Button px='10' py='7' colorScheme="blue" borderRadius={15} onClick={handleSave}>メモする</Button>
+      </motion.div>
       </Center>
     </VStack>
   </>
