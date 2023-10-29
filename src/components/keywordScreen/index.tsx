@@ -36,7 +36,7 @@ export const KeywordScreen: FC<KeywordScreenProps> = ({ route, keyword }) => {
         </Center>
       </Box>
       <Center>
-      <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }}>
+      <motion.div whileTap={{ scale: 0.8 }}>
         <Button px='10' py='7' colorScheme="blue" borderRadius={15} onClick={handleSave}>メモする</Button>
       </motion.div>
       </Center>
