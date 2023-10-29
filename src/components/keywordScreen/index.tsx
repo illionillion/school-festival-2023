@@ -14,19 +14,19 @@ interface ModalsProps {
 export const Modals: FC<ModalsProps> = ({ errorFlag, onMordalClose }) => {
   return (errorFlag&&
   <Modal isCentered isOpen={errorFlag} onClose={onMordalClose}>
-      <ModalOverlay />
-      <ModalContent>
-        <ModalHeader>Error!</ModalHeader>
-        <ModalCloseButton />
-        <ModalBody>
+    <ModalOverlay />
+    <ModalContent>
+      <ModalHeader>Error!</ModalHeader>
+      <ModalCloseButton />
+      <ModalBody>
             ページが存在していません
-        </ModalBody>
-        <ModalFooter>
-          <Button onClick={onMordalClose}>閉じる</Button>
-        </ModalFooter>
+      </ModalBody>
+      <ModalFooter>
+        <Button onClick={onMordalClose}>閉じる</Button>
+      </ModalFooter>
     </ModalContent>
-  </Modal>)
-}
+  </Modal>);
+};
 
 export const KeywordScreen: FC<KeywordScreenProps> = ({ route, keyword }) => {
   const handleSave = () => {
