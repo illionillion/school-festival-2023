@@ -1,6 +1,7 @@
 import { saveKeyword } from '@/lib/memoKeywords';
 import { Box, Button, Center, Text, VStack } from '@chakra-ui/react';
-import { FC, useEffect } from 'react';
+import type { FC} from 'react';
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useReward } from 'react-rewards';
 interface KeywordScreenProps {
@@ -11,21 +12,21 @@ export const KeywordScreen: FC<KeywordScreenProps> = ({ route, keyword }) => {
   const handleSave = () => {
     saveKeyword(route, keyword);
   };
-  const { reward } = useReward("rewardId", "confetti");
+  const { reward } = useReward('rewardId', 'confetti');
 
   useEffect(() => {
-    reward()
+    reward();
   }, [reward]);
-return (<>
+  return (<>
     <VStack w='100vw' h="calc(100svh - 72px)" justify='center' alignItems='center' py='14'>
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          <VStack gap={3}>
-            <Center gap={3}>
-              <Text fontSize='2xl' userSelect="none">ルート</Text>
-              <Text fontSize='2xl' color='red' userSelect="none">{route}</Text>
-            </Center>
-            <Center fontSize='2xl' userSelect="none">キーワード</Center>
-          </VStack>
+        <VStack gap={3}>
+          <Center gap={3}>
+            <Text fontSize='2xl' userSelect="none">ルート</Text>
+            <Text fontSize='2xl' color='red' userSelect="none">{route}</Text>
+          </Center>
+          <Center fontSize='2xl' userSelect="none">キーワード</Center>
+        </VStack>
         <Box py='6'>
           <Center id="rewardId"
             maxW='356px'
@@ -37,15 +38,15 @@ return (<>
             borderStyle='solid'
             margin='auto'
           >
-          <motion.div animate={{ y: 0 }} transition={{ type: 'spring' }} initial={{ y: '15vh' }} whileTap={{ scale: 0.8, rotate: 360 }}>
-            <Text fontSize='9xl' userSelect="none">{keyword}</Text>
-          </motion.div>
+            <motion.div animate={{ y: 0 }} transition={{ type: 'spring' }} initial={{ y: '15vh' }} whileTap={{ scale: 0.8, rotate: 360 }}>
+              <Text fontSize='9xl' userSelect="none">{keyword}</Text>
+            </motion.div>
           </Center>
         </Box>
         <Center>
-        <motion.div whileTap={{ scale: 0.8 }}>
-          <Button px='10' py='7' colorScheme="blue" borderRadius={15} onClick={handleSave}>メモする</Button>
-        </motion.div>
+          <motion.div whileTap={{ scale: 0.8 }}>
+            <Button px='10' py='7' colorScheme="blue" borderRadius={15} onClick={handleSave}>メモする</Button>
+          </motion.div>
         </Center>
       </motion.div>
     </VStack>
