@@ -26,10 +26,8 @@ export const SaveKeywordList:FC = () => {
     );
   },[]);
   return <VStack w='100vw' h="calc(100svh - 72px)" justify='center' alignItems='center'>
-    <motion.div animate={{ y: 0 }} transition={{ type: 'spring'}} initial={{ y: '-15vh' }}>
+    <motion.div animate={{ y: 0 }} transition={{ type: 'spring'}} initial={{ y: '-20vh' }}>
     <Text fontSize='2xl' userSelect="none">キーワードメモ</Text>
-    </motion.div>
-    <motion.div animate={{ y: 0 }} transition={{ type: 'spring', delay: 0.05}} initial={{ y: '-5vh' }}>
       {words.map((item, index) => (
       <Box key={index}>
         <Text userSelect="none">ルート：{item.route}</Text>
