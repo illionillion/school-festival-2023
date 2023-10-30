@@ -1,6 +1,6 @@
 import { deleteKeyword, loadKeyword } from '@/lib/memoKeywords';
 import { Box, Button, ListItem, Text, UnorderedList, VStack } from '@chakra-ui/react';
-import type { FC} from 'react';
+import type { FC } from 'react';
 import { useEffect, useState } from 'react';
 
 type wordList = {
@@ -25,11 +25,11 @@ export const SaveKeywordList:FC = () => {
     );
   },[]);
   return <VStack w='100vw' h="calc(100svh - 72px)" justify='center' alignItems='center'>
-    <Text fontSize='2xl'>キーワードメモ</Text>
+    <Text fontSize='2xl' userSelect="none">キーワードメモ</Text>
     {words.map((item, index) => (
       <Box key={index}>
-        <Text>ルート：{item.route}</Text>
-        <UnorderedList>
+        <Text userSelect="none">ルート：{item.route}</Text>
+        <UnorderedList userSelect="none">
           {item.keywords.map((word, index) => (
             <ListItem key={index}>{word}</ListItem>
           ))}
