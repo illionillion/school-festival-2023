@@ -1,6 +1,6 @@
 import { deleteKeyword, loadKeyword } from '@/lib/memoKeywords';
 import { Box, Button, ListItem, Text, UnorderedList, VStack } from '@chakra-ui/react';
-import type { FC} from 'react';
+import type { FC } from 'react';
 import { useEffect, useState } from 'react';
 
 type wordList = {
