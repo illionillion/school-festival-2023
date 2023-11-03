@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import data from '@/keywords.json';
 import { digestMessage } from '@/lib/digestMessage';
-import { Modals } from '@/components/keywordScreen';
+import { ErrorModal } from '@/components/keywordScreen/ErrorModal';
 
 export default function Key() {
   const router = useRouter();
@@ -55,7 +55,7 @@ export default function Key() {
     <Layout>
       <KeywordScreen keyword={keyword} route={currentRoute as string}
       />
-      <Modals errorFlag={errorFlag} onMordalClose={onMordalClose}/>
+      <ErrorModal errorFlag={errorFlag} onMordalClose={onMordalClose}/>
     </Layout>
   );
 }
