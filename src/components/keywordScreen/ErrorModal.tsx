@@ -1,13 +1,13 @@
 import { Button, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter, Modal} from '@chakra-ui/react';
 import type { FC } from 'react';
 
-interface ModalsProps {
+interface ErrorModalProps {
     errorFlag: boolean
     onMordalClose: () => void
 }
 
-export const ErrorModal: FC<ModalsProps> = ({ errorFlag, onMordalClose }) => {
-  return (errorFlag&&
+export const ErrorModal: FC<ErrorModalProps> = ({ errorFlag, onMordalClose }) => {
+  return (errorFlag &&
   <Modal isCentered isOpen={errorFlag} onClose={onMordalClose}>
     <ModalOverlay />
     <ModalContent>

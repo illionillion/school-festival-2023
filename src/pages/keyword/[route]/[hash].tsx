@@ -53,9 +53,8 @@ export default function Key() {
   },[route, hash]);
   return (
     <Layout>
-      <KeywordScreen keyword={keyword} route={currentRoute as string}
+      <KeywordScreen keyword={keyword} route={currentRoute as string} errorFlag={errorFlag} onMordalClose={onMordalClose}
       />
-      <ErrorModal errorFlag={errorFlag} onMordalClose={onMordalClose}/>
     </Layout>
   );
 }

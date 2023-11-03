@@ -4,13 +4,16 @@ import type { FC } from 'react';
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useReward } from 'react-rewards';
+import { ErrorModal } from './ErrorModal';
 
 interface KeywordScreenProps {
     route: string
     keyword: string
+    errorFlag: boolean
+    onMordalClose: () => void
 }
 
-export const KeywordScreen: FC<KeywordScreenProps> = ({ route, keyword }) => {
+export const KeywordScreen: FC<KeywordScreenProps> = ({ route, keyword, errorFlag, onMordalClose }) => {
   const handleSave = () => {
     saveKeyword(route, keyword);
   };
@@ -20,6 +23,7 @@ export const KeywordScreen: FC<KeywordScreenProps> = ({ route, keyword }) => {
     reward();
   }, [reward]);
   return (<>
+    <ErrorModal errorFlag={errorFlag} onMordalClose={onMordalClose} />
     <VStack w='100vw' h="calc(100svh - 72px)" justify='center' alignItems='center' py='14'>
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
         <VStack gap={3}>
