@@ -50,9 +50,9 @@ export const KeywordScreen: FC<KeywordScreenProps> = ({ route, keyword, errorFla
           </Center>
         </Box>
         <Center>
-          <motion.div whileTap={{ scale: 0.8 }}>
-            <Button px='10' py='7' colorScheme="blue" borderRadius={15} onClick={handleSave}>メモする</Button>
-          </motion.div>
+          {/* <motion.div whileTap={{ scale: 0.8 }}> */}
+          <Button px='10' py='7' colorScheme="blue" borderRadius={15} onClick={handleSave}>メモする</Button>
+          {/* </motion.div> */}
         </Center>
       </motion.div>
     </VStack>
