@@ -4,7 +4,7 @@ import { Layout } from '@/components/layout';
 export default function Home() {
   return (
     <Layout>
-      <KeywordScreen keyword='？' route='サンプル'/>
+      <KeywordScreen keyword='？' route='サンプル' errorFlag={false} onMordalClose={()=>{}}/>
     </Layout>
   );
 }
