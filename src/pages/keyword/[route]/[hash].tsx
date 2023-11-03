@@ -4,7 +4,6 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import data from '@/keywords.json';
 import { digestMessage } from '@/lib/digestMessage';
-import { ErrorModal } from '@/components/keywordScreen/ErrorModal';
 
 export default function Key() {
   const router = useRouter();
