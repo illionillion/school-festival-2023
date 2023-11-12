@@ -1,4 +1,4 @@
-import { Button, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter, Modal, AlertDialog, AlertDialogBody, AlertDialogCloseButton, AlertDialogContent, AlertDialogFooter, AlertDialogHeader, AlertDialogOverlay, useDisclosure} from '@chakra-ui/react';
+import { Button, AlertDialog, AlertDialogBody, AlertDialogContent, AlertDialogFooter, AlertDialogHeader, AlertDialogOverlay, useDisclosure} from '@chakra-ui/react';
 import { useRef, type FC } from 'react';
 
 interface DeleteModalProps {
@@ -28,19 +28,19 @@ export const DeleteCheckModal: FC<DeleteModalProps> = ({  }) => {
         <AlertDialogOverlay>
           <AlertDialogContent>
             <AlertDialogHeader fontSize='lg' fontWeight='bold'>
-              Delete Customer
+              Attention!!
             </AlertDialogHeader>
 
             <AlertDialogBody>
-              Are you sure? You can't undo this action afterwards.
+                リセットしますか？(この操作は元に戻せません)
             </AlertDialogBody>
 
             <AlertDialogFooter>
               <Button ref={cancelRef} onClick={onClose}>
-                Cancel
+                キャンセル
               </Button>
-              <Button colorScheme='red' onClick={onClose} ml={3}>
-                Delete
+              <Button colorScheme='red' onClick={onClose} >
+                リセット
               </Button>
             </AlertDialogFooter>
           </AlertDialogContent>
