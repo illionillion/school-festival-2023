@@ -2,13 +2,13 @@ import { Button, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, Moda
 import type { FC } from 'react';
 
 interface ErrorModalProps {
-    errorFlag: boolean
+    isOpen: boolean
     onMordalClose: () => void
 }
 
-export const ErrorModal: FC<ErrorModalProps> = ({ errorFlag, onMordalClose }) => {
-  return (errorFlag &&
-  <Modal isCentered isOpen={errorFlag} onClose={onMordalClose}>
+export const ErrorModal: FC<ErrorModalProps> = ({ isOpen, onMordalClose }) => {
+  return (isOpen &&
+  <Modal isCentered isOpen={isOpen} onClose={onMordalClose}>
     <ModalOverlay />
     <ModalContent>
       <ModalHeader>Error!</ModalHeader>

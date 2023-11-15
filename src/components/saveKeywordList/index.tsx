@@ -9,6 +9,8 @@ type wordList = {
   keywords: string[]
 }
 
+const keys = Array.from('ABCDE');
+
 export const SaveKeywordList: FC = () => {
   const [words, setWords] = useState<wordList[]>([]);
   const { isOpen, onClose, onOpen } = useDisclosure();
@@ -16,7 +18,7 @@ export const SaveKeywordList: FC = () => {
     if (words.length > 0) onOpen();
   };
   const resetKeywords = () => {
-    Array.from('ABCDE').forEach(item => {
+    keys.forEach(item => {
       deleteKeyword(item);
     });
     setWords([]);
@@ -24,7 +26,7 @@ export const SaveKeywordList: FC = () => {
   };
   useEffect(() => {
     setWords(
-      Array.from('ABCDE').map(item => ({
+      keys.map(item => ({
         route: item,
         keywords: loadKeyword(item)
       })).filter(ele => ele.keywords.length > 0)

@@ -10,10 +10,11 @@ interface KeywordScreenProps {
     route: string
     keyword: string
     errorFlag: boolean
+    isOpen: boolean
     onMordalClose: () => void
 }
 
-export const KeywordScreen: FC<KeywordScreenProps> = ({ route, keyword, errorFlag, onMordalClose }) => {
+export const KeywordScreen: FC<KeywordScreenProps> = ({ route, keyword, errorFlag, isOpen, onMordalClose }) => {
   const handleSave = () => {
     saveKeyword(route, keyword);
   };
@@ -23,7 +24,7 @@ export const KeywordScreen: FC<KeywordScreenProps> = ({ route, keyword, errorFla
     reward();
   }, [reward]);
   return (<>
-    <ErrorModal errorFlag={errorFlag} onMordalClose={onMordalClose} />
+    <ErrorModal isOpen={isOpen} onMordalClose={onMordalClose} />
     <VStack w='100vw' h="calc(100svh - 72px)" justify='center' alignItems='center' py='14'>
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
         <VStack gap={3}>
@@ -50,9 +51,7 @@ export const KeywordScreen: FC<KeywordScreenProps> = ({ route, keyword, errorFla
           </Center>
         </Box>
         <Center>
-          {/* <motion.div whileTap={{ scale: 0.8 }}> */}
-          <Button px='10' py='7' colorScheme="blue" borderRadius={15} onClick={handleSave}>メモする</Button>
-          {/* </motion.div> */}
+          <Button px='10' py='7' colorScheme="blue" borderRadius={15} isDisabled={errorFlag} onClick={handleSave}>メモする</Button>
         </Center>
       </motion.div>
     </VStack>
