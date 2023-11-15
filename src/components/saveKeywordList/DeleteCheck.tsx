@@ -14,9 +14,7 @@ interface DeleteModalProps {
 
 export const DeleteCheckModal: FC<DeleteModalProps> = ({  }) => {
     const { isOpen, onOpen, onClose } = useDisclosure()
-  // before
-  // const cancelRef = React.useRef()
-  // after
+
   const cancelRef = useRef<HTMLButtonElement>(null); // HTMLButtonElementを渡す
 
   const [words, setWords] = useState<wordList[]>([]);

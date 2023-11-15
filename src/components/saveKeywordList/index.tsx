@@ -1,5 +1,5 @@
-import { deleteKeyword, loadKeyword } from '@/lib/memoKeywords';
-import { Box, Button, ListItem, Text, UnorderedList, VStack } from '@chakra-ui/react';
+import { loadKeyword } from '@/lib/memoKeywords';
+import { Box, ListItem, Text, UnorderedList, VStack } from '@chakra-ui/react';
 import type { FC } from 'react';
 import { useEffect, useState } from 'react';
 import { DeleteCheckModal } from './DeleteCheck';
@@ -11,12 +11,6 @@ type wordList = {
 
 export const SaveKeywordList:FC = (saveKeywordProps) => {
   const [words, setWords] = useState<wordList[]>([]);
-  // const resetKeywords = () => {
-  //   Array.from('ABCDE').forEach(item => {
-  //     deleteKeyword(item);
-  //   });
-  //   setWords([]);
-  // };
   useEffect(() => {
     setWords(
       Array.from('ABCDE').map(item => ({
@@ -37,7 +31,6 @@ export const SaveKeywordList:FC = (saveKeywordProps) => {
         </UnorderedList>
       </Box>
     ))}
-    {/* <Button colorScheme="red" onClick={resetKeywords}>リセット</Button> */}
     <DeleteCheckModal/>
   </VStack>;
 };
