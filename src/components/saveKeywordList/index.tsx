@@ -11,12 +11,12 @@ type wordList = {
 
 export const SaveKeywordList:FC = (saveKeywordProps) => {
   const [words, setWords] = useState<wordList[]>([]);
-  const resetKeywords = () => {
-    Array.from('ABCDE').forEach(item => {
-      deleteKeyword(item);
-    });
-    setWords([]);
-  };
+  // const resetKeywords = () => {
+  //   Array.from('ABCDE').forEach(item => {
+  //     deleteKeyword(item);
+  //   });
+  //   setWords([]);
+  // };
   useEffect(() => {
     setWords(
       Array.from('ABCDE').map(item => ({

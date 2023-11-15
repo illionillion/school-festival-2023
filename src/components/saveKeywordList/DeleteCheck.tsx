@@ -1,5 +1,11 @@
+import { deleteKeyword } from '@/lib/memoKeywords';
 import { Button, AlertDialog, AlertDialogBody, AlertDialogContent, AlertDialogFooter, AlertDialogHeader, AlertDialogOverlay, useDisclosure} from '@chakra-ui/react';
-import { useRef, type FC } from 'react';
+import { useRef, type FC, useState } from 'react';
+
+type wordList = {
+  route: string,
+  keywords: string[]
+}
 
 interface DeleteModalProps {
     // deleteFlag: boolean
@@ -12,6 +18,15 @@ export const DeleteCheckModal: FC<DeleteModalProps> = ({  }) => {
   // const cancelRef = React.useRef()
   // after
   const cancelRef = useRef<HTMLButtonElement>(null); // HTMLButtonElementを渡す
+
+  const [words, setWords] = useState<wordList[]>([]);
+  const resetKeywords = () => {
+    Array.from('ABCDE').forEach(item => {
+      deleteKeyword(item);
+    });
+    setWords([]);
+    window.location.reload();
+  };
 
   return (
     <>
@@ -39,7 +54,7 @@ export const DeleteCheckModal: FC<DeleteModalProps> = ({  }) => {
               <Button ref={cancelRef} onClick={onClose}>
                 キャンセル
               </Button>
-              <Button colorScheme='red' onClick={onClose} >
+              <Button colorScheme='red' onClick={() => {resetKeywords(); onClose();}} >
                 リセット
               </Button>
             </AlertDialogFooter>
