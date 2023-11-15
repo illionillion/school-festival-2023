@@ -8,7 +8,7 @@ type wordList = {
     keywords: string[]
 }
 
-const keys = Array.from('ABCDE')
+const keys = Array.from('ABCDE');
 
 export const SaveKeywordList:FC = () => {
   const [words, setWords] = useState<wordList[]>([]);

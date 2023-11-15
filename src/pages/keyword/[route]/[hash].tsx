@@ -19,11 +19,11 @@ export default function Key() {
       setCurrentRoute(route.toUpperCase());
       // hashとハッシュ化したidが等しいか比較する
       for (const item of data) {
-        if (item.route.toLowerCase() !== route.toLowerCase()) continue
+        if (item.route.toLowerCase() !== route.toLowerCase()) continue;
         let hashFlag = false;
         for (const ele of item.keywords) {
           const hashed = await digestMessage(ele.id);
-          if (hash !== hashed) continue
+          if (hash !== hashed) continue;
           setKeyword(ele.keyword);
           hashFlag = true;
         }
