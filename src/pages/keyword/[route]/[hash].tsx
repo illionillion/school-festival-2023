@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import data from '@/keywords.json';
 import { digestMessage } from '@/lib/digestMessage';
+import { useBoolean } from '@chakra-ui/react';
 
 export default function Key() {
   const router = useRouter();
@@ -11,6 +12,7 @@ export default function Key() {
   const [currentRoute, setCurrentRoute] = useState<string>('');
   const [keyword, setKeyword] = useState<string>('');
   const [errorFlag, setErrorFlag] = useState<boolean>(false);
+  const [isOpen, {on: onOpen, off: onOff}] = useBoolean();
 
   const decodeHash = async () => {
     if((!route || typeof route !== 'string') || (!hash  || typeof hash !== 'string')) return;
@@ -29,17 +31,20 @@ export default function Key() {
         }
         if(!hashFlag){
           setErrorFlag(true);
+          onOpen();
           console.log('hashFlagはfalse');
         }
       }
     }else{
       setErrorFlag(true);
+      onOpen();
       console.log('routeの不一致');
     }
   };
 
   const onMordalClose=()=>{
-    setErrorFlag(false);
+    // setErrorFlag(false);
+    onOff();
   };
 
   useEffect(()=>{
@@ -47,7 +52,7 @@ export default function Key() {
   },[route, hash]);
   return (
     <Layout>
-      <KeywordScreen keyword={keyword} route={currentRoute as string} errorFlag={errorFlag} onMordalClose={onMordalClose} />
+      <KeywordScreen keyword={keyword} route={currentRoute as string} errorFlag={errorFlag} isOpen={isOpen} onMordalClose={onMordalClose} />
     </Layout>
   );
 }
