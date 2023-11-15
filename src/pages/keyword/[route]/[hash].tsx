@@ -11,7 +11,6 @@ export default function Key() {
   const [currentRoute, setCurrentRoute] = useState<string>('');
   const [keyword, setKeyword] = useState<string>('');
   const [errorFlag, setErrorFlag] = useState<boolean>(false);
-  console.log(errorFlag);
 
   const decodeHash = async () => {
     if((!route || typeof route !== 'string') || (!hash  || typeof hash !== 'string')) return;
@@ -20,19 +19,17 @@ export default function Key() {
       setCurrentRoute(route.toUpperCase());
       // hashとハッシュ化したidが等しいか比較する
       for (const item of data) {
-        if (item.route.toLowerCase() === route.toLowerCase()) {
-          let hashFlag = false;
-          for (const ele of item.keywords) {
-            const hashed = await digestMessage(ele.id);
-            if (hash === hashed) {
-              setKeyword(ele.keyword);
-              hashFlag = true;
-            }
-          }
-          if(!hashFlag){
-            setErrorFlag(true);
-            console.log('hashFlagはfalse');
-          }
+        if (item.route.toLowerCase() !== route.toLowerCase()) continue
+        let hashFlag = false;
+        for (const ele of item.keywords) {
+          const hashed = await digestMessage(ele.id);
+          if (hash !== hashed) continue
+          setKeyword(ele.keyword);
+          hashFlag = true;
+        }
+        if(!hashFlag){
+          setErrorFlag(true);
+          console.log('hashFlagはfalse');
         }
       }
     }else{
@@ -45,15 +42,12 @@ export default function Key() {
     setErrorFlag(false);
   };
 
-  
-
   useEffect(()=>{
     decodeHash();
   },[route, hash]);
   return (
     <Layout>
-      <KeywordScreen keyword={keyword} route={currentRoute as string} errorFlag={errorFlag} onMordalClose={onMordalClose}
-      />
+      <KeywordScreen keyword={keyword} route={currentRoute as string} errorFlag={errorFlag} onMordalClose={onMordalClose} />
     </Layout>
   );
 }
