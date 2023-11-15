@@ -1,29 +1,22 @@
-import { Button, AlertDialog, AlertDialogBody, AlertDialogContent, AlertDialogFooter, AlertDialogHeader, AlertDialogOverlay, useDisclosure} from '@chakra-ui/react';
+import { Button, AlertDialog, AlertDialogBody, AlertDialogContent, AlertDialogFooter, AlertDialogHeader, AlertDialogOverlay} from '@chakra-ui/react';
 import { useRef, type FC } from 'react';
 
 interface DeleteModalProps {
-    // deleteFlag: boolean
-    // onMordalClose: () => void
+    isOpen: boolean
+    onReset: () => void
+    onClose: () => void
 }
 
-export const DeleteCheckModal: FC<DeleteModalProps> = ({  }) => {
-    const { isOpen, onOpen, onClose } = useDisclosure()
-  // before
-  // const cancelRef = React.useRef()
-  // after
+export const DeleteCheckModal: FC<DeleteModalProps> = ({ isOpen, onClose, onReset }) => {
   const cancelRef = useRef<HTMLButtonElement>(null); // HTMLButtonElementを渡す
 
   return (
     <>
-      <Button colorScheme='red' onClick={onOpen}>
-        リセット
-      </Button>
-
       <AlertDialog
+        isCentered
         isOpen={isOpen}
         leastDestructiveRef={cancelRef}
         onClose={onClose}
-        isCentered
       >
         <AlertDialogOverlay>
           <AlertDialogContent>
@@ -35,11 +28,11 @@ export const DeleteCheckModal: FC<DeleteModalProps> = ({  }) => {
                 リセットしますか？(この操作は元に戻せません)
             </AlertDialogBody>
 
-            <AlertDialogFooter>
+            <AlertDialogFooter gap={5}>
               <Button ref={cancelRef} onClick={onClose}>
                 キャンセル
               </Button>
-              <Button colorScheme='red' onClick={onClose} >
+              <Button colorScheme='red' onClick={onReset} >
                 リセット
               </Button>
             </AlertDialogFooter>
@@ -47,6 +40,5 @@ export const DeleteCheckModal: FC<DeleteModalProps> = ({  }) => {
         </AlertDialogOverlay>
       </AlertDialog>
     </>
-  )
-    
+  );
 };
