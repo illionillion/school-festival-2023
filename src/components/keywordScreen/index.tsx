@@ -1,5 +1,5 @@
 import { saveKeyword } from '@/lib/memoKeywords';
-import { Box, Button, Center, Text, VStack } from '@chakra-ui/react';
+import { Box, Button, Center, Text, VStack, useToast } from '@chakra-ui/react';
 import type { FC } from 'react';
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
@@ -15,8 +15,18 @@ interface KeywordScreenProps {
 }
 
 export const KeywordScreen: FC<KeywordScreenProps> = ({ route, keyword, errorFlag, isOpen, onMordalClose }) => {
+  
+  const toast = useToast();
+
   const handleSave = () => {
     saveKeyword(route, keyword);
+    toast({
+      title: 'メモしました',
+      description: '「メモ一覧」から確認',
+      status: 'success',
+      duration: 3000,
+      isClosable: true,
+    });
   };
   const { reward } = useReward('rewardId', 'confetti');
 
