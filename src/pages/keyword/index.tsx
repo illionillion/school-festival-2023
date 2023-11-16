@@ -24,7 +24,7 @@ export default function List() {
   };
 
   useEffect(() => {
-    init();
+    if(window.location.host.includes('localhost')) init();
   },[]);
   return <Layout>
     {keywords.map((ele, index) => (
