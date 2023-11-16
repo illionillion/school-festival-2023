@@ -33,19 +33,21 @@ export const SaveKeywordList: FC = () => {
     );
   }, []);
   return <VStack w='100vw' h="calc(100svh - 72px)" justify='center' alignItems='center'>
-    <Text fontSize='2xl' userSelect="none">キーワードメモ</Text>
-    {words.length === 0 && <Text>キーワードなし</Text>}
-    {words.map((item, index) => (
-      <Box key={index}>
-        <Text userSelect="none">ルート：{item.route}</Text>
-        <UnorderedList userSelect="none">
-          {item.keywords.map((word, index) => (
-            <ListItem key={index}>{word}</ListItem>
-          ))}
-        </UnorderedList>
-      </Box>
-    ))}
-    <Button colorScheme="red" onClick={handleOpen}>リセット</Button>
-    <DeleteCheckModal isOpen={isOpen} onClose={onClose} onReset={resetKeywords} />
+    <VStack h='full' w='full'>
+      <Text fontSize='2xl' userSelect="none">キーワードメモ</Text>
+      {words.length === 0 && <Text>キーワードなし</Text>}
+      {words.map((item, index) => (
+        <Box key={index}>
+          <Text userSelect="none">ルート：{item.route}</Text>
+          <UnorderedList userSelect="none">
+            {item.keywords.map((word, index) => (
+              <ListItem key={index}>{word}</ListItem>
+            ))}
+          </UnorderedList>
+        </Box>
+      ))}
+      <Box flex={1} py={5}><Button colorScheme="red" onClick={handleOpen}>リセット</Button></Box>
+      <DeleteCheckModal isOpen={isOpen} onClose={onClose} onReset={resetKeywords} />
+    </VStack>
   </VStack>;
 };
