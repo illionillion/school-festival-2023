@@ -9,6 +9,45 @@ NFCに埋め込んだページに表示されるキーワードを集めて並�
 - TypeScript
 - Chakra UI
 
+## 使用方法
+
+`/src/keywords.json`にルートとキーワードをJSONにして貼り付ける
+
+例
+
+```json
+[
+    {
+        "route": "{ルート名}",
+        "keywords": [
+            {
+                "id": "{id}",
+                "keyword": "{キーワード}"
+            },
+            {
+                "id": "{id}",
+                "keyword": "{キーワード}"
+            },
+            {
+                "id": "{id}",
+                "keyword": "{キーワード}"
+            },
+            {
+                "id": "{id}",
+                "keyword": "{キーワード}"
+            },
+            {
+                "id": "{id}",
+                "keyword": "{キーワード}"
+            }
+        ]
+    },
+    // ...（これを以下にルート数分記述）
+]
+```
+
+ホスティングはVercelでする。
+
 <!-- This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
