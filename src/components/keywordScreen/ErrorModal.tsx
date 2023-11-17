@@ -11,10 +11,10 @@ export const ErrorModal: FC<ErrorModalProps> = ({ isOpen, onMordalClose }) => {
   <Modal isCentered isOpen={isOpen} onClose={onMordalClose}>
     <ModalOverlay />
     <ModalContent>
-      <ModalHeader>Error!</ModalHeader>
+      <ModalHeader>エラー</ModalHeader>
       <ModalCloseButton />
       <ModalBody>
-            ページが存在していません
+        ページが存在していません
       </ModalBody>
       <ModalFooter>
         <Button onClick={onMordalClose}>閉じる</Button>

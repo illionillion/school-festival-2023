@@ -32,18 +32,17 @@ export default function Key() {
         if(!hashFlag){
           setErrorFlag(true);
           onOpen();
-          console.log('hashFlagはfalse');
+          // console.log('hashFlagはfalse');
         }
       }
     }else{
       setErrorFlag(true);
       onOpen();
-      console.log('routeの不一致');
+      // console.log('routeの不一致');
     }
   };
 
   const onMordalClose=()=>{
-    // setErrorFlag(false);
     onOff();
   };
 
