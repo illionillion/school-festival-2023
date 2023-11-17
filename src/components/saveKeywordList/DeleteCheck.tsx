@@ -21,7 +21,7 @@ export const DeleteCheckModal: FC<DeleteModalProps> = ({ isOpen, onClose, onRese
         <AlertDialogOverlay>
           <AlertDialogContent>
             <AlertDialogHeader fontSize='lg' fontWeight='bold'>
-              Attention!!
+              確認
             </AlertDialogHeader>
 
             <AlertDialogBody>

@@ -18,12 +18,12 @@ export default function List() {
         json['urls'].push(`/keyword/${ele.route}/${await digestMessage(keyword.id)}`);
       }
       keywords_.push(json);
-      console.log();
     }
     setKeywords(keywords_);
   };
 
   useEffect(() => {
+    // localhost時のみ表示
     if(window.location.host.includes('localhost')) init();
   },[]);
   return <Layout>
